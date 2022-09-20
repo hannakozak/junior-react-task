@@ -12,7 +12,7 @@ export const fetchCategoryProducts = createAsyncThunk(
   async (category) => {
     let response = await apolloClient.query({
       query: categoryProductsQuery,
-      variables: { category: category }
+      variables: { category }
     });
     console.log(response.data.category.products);
     return response.data.category.products;

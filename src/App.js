@@ -1,19 +1,14 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Navigation from './components/navigation/Navigation';
-import CategoryListingPage from './components/CategoryListingPage';
+import Category from './components/category/Category';
 
 export class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
-        <Navigation />
         <Routes>
-          <Route path="/" element={<CategoryListingPage />} />
-          <Route
-            path="/category/:categoryName"
-            element={<CategoryListingPage />}
-          />
+          <Route path="/" element={<Category />} />
+          <Route path="/category/:categoryName" element={<Category />} />
         </Routes>
       </BrowserRouter>
     );
