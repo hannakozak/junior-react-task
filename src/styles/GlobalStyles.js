@@ -14,7 +14,8 @@ export const GlobalStyles = createGlobalStyle`
 }
   body {
     line-height: 1.5;
-    
+    background-color: ${({ theme }) => theme.colors.shark};  
+    font-size: 1.8rem;
   }
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;
