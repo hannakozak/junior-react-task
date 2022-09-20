@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { fetchCategories } from '../../features/categories/categoriesSlice';
-import { Link } from 'react-router-dom';
+import { NavigationWrapper, Label, NavLink } from './Navigation.styled';
 
 class Navigation extends React.Component {
   componentDidMount() {
@@ -10,14 +10,18 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <nav>
-        {this.props.fetchCategoriesStatus === 'SUCCESS' &&
-          this.props.categories.map((category) => (
-            <Link to={`/category/${category.name}`} key={category.name}>
-              {category.name}
-            </Link>
-          ))}
-      </nav>
+      <NavigationWrapper>
+        <nav>
+          {this.props.fetchCategoriesStatus === 'SUCCESS' &&
+            this.props.categories.map((category) => (
+              <NavLink key={category.name}>
+                <Label to={`/category/${category.name}`} key={category.name}>
+                  {category.name}
+                </Label>
+              </NavLink>
+            ))}
+        </nav>
+      </NavigationWrapper>
     );
   }
 }
