@@ -5,7 +5,6 @@ export const categoryProductsQuery = gql`
     category(input: { title: $category }) {
       name
       products {
-        id
         name
         prices {
           currency {
@@ -16,19 +15,6 @@ export const categoryProductsQuery = gql`
         }
         inStock
         gallery
-        description
-        category
-        attributes {
-          id
-          name
-          type
-          items {
-            displayValue
-            value
-            id
-          }
-        }
-        brand
       }
     }
   }
