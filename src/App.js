@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Category from './components/category/Category';
+import Category from './views/category/Category';
 
 export class App extends React.Component {
   render() {

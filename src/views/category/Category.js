@@ -1,9 +1,14 @@
 import React from 'react';
-import { Header } from '../header/Header';
+import { Header } from '../../components/header/Header';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import { fetchCategoryProducts } from '../../features/categoryProducts/categoryProductsSlice';
-import { CategoryWrapper } from './Category.styled';
+import {
+  CategoryTitle,
+  CategoryWrapper,
+  CategoryProductContainer
+} from './Category.styled';
+import { CategoryProduct } from '../../components/categoryProduct/CategoryProduct';
 
 class CategoryListingPage extends React.Component {
   constructor(props) {
@@ -24,24 +29,16 @@ class CategoryListingPage extends React.Component {
     return (
       <CategoryWrapper>
         <Header />
-        <h1> {categoryName}</h1>
-        {this.props.products.map((product) => (
-          <div key={product.name}>
-            {product.name}{' '}
-            <img src={product.gallery[0]} style={{ width: 100, height: 100 }} />
-            <div>
-              {product.prices
-                .filter(
-                  (cur) => cur.currency.symbol === this.props.selectedCurrency
-                )
-                .map((price) => (
-                  <div key={price.amount}>
-                    {price.currency.symbol} {price.amount}
-                  </div>
-                ))}
-            </div>
-          </div>
-        ))}
+        <CategoryTitle> {categoryName}</CategoryTitle>
+        <CategoryProductContainer>
+          {this.props.products.map((product) => (
+            <CategoryProduct
+              key={product.name}
+              product={product}
+              selectedCurrency={this.props.selectedCurrency}
+            />
+          ))}
+        </CategoryProductContainer>
       </CategoryWrapper>
     );
   }

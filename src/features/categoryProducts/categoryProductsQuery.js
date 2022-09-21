@@ -5,14 +5,30 @@ export const categoryProductsQuery = gql`
     category(input: { title: $category }) {
       name
       products {
+        id
         name
         prices {
           currency {
+            label
             symbol
           }
           amount
         }
+        inStock
         gallery
+        description
+        category
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        brand
       }
     }
   }
