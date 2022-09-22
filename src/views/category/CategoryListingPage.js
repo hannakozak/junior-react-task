@@ -9,11 +9,13 @@ import {
   CategoryProductContainer
 } from './Category.styled';
 import { CategoryProduct } from '../../components/categoryProduct/CategoryProduct';
+import { Link } from 'react-router-dom';
 
 class CategoryListingPage extends React.Component {
   constructor(props) {
     super(props);
   }
+
   componentDidMount() {
     this.props.fetchCategoryProducts(this.props.params.categoryName);
   }
@@ -32,11 +34,13 @@ class CategoryListingPage extends React.Component {
         <CategoryTitle> {categoryName}</CategoryTitle>
         <CategoryProductContainer>
           {this.props.products.map((product) => (
-            <CategoryProduct
-              key={product.name}
-              product={product}
-              selectedCurrency={this.props.selectedCurrency}
-            />
+            <Link to={`${product.id}`} key={product.id}>
+              <CategoryProduct
+                key={product.name}
+                product={product}
+                selectedCurrency={this.props.selectedCurrency}
+              />
+            </Link>
           ))}
         </CategoryProductContainer>
       </CategoryWrapper>
