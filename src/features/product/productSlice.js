@@ -4,6 +4,7 @@ import { apolloClient } from '../../app/apolloClient';
 
 const initialState = {
   product: {},
+  selectedPhoto: '',
   fetchProductStatus: 'IDLE'
 };
 
@@ -22,13 +23,17 @@ export const fetchProduct = createAsyncThunk(
 export const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {},
+  reducers: {
+    selectPhoto(state, action) {
+      state.selectedPhoto = action.payload;
+    }
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchProduct.pending, function (state) {
       state.fetchProductStatus = 'PENDING';
     });
     builder.addCase(fetchProduct.fulfilled, function (state, action) {
-      state.fetchProductsStatus = 'SUCCESS';
+      state.fetchProductStatus = 'SUCCESS';
       state.product = action.payload;
     });
     builder.addCase(fetchProduct.rejected, function (state) {
@@ -37,4 +42,5 @@ export const productSlice = createSlice({
   }
 });
 
+export const { selectPhoto } = productSlice.actions;
 export default productSlice.reducer;
