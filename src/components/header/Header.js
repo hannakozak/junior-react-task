@@ -1,9 +1,9 @@
 import React from 'react';
 import { HeaderWrapper, Actions } from './Header.styled';
-import Navigation from '../navigation/Navigation';
-import { Logo } from '../logo/Logo';
+import Navigation from '../Navigation/Navigation';
+import { Logo } from '../Logo/Logo';
 import basket from '../../images/basket.svg';
-import CurrencySwitcher from '../currencies/CurrencySwitcher';
+import CurrencySwitcher from '../CurrencySwitcher/CurrencySwitcher';
 
 export class Header extends React.Component {
   render() {

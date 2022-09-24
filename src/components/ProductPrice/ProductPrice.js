@@ -1,8 +1,8 @@
 import React from 'react';
-import { AttributeLabel } from '../attributesList/AttributesList.styled';
-import { PriceStyled } from './Price.styled';
+import { AttributeLabel } from '../AttributesList/AttributesList.styled';
+import { PriceStyled } from './ProductPrice.styled';
 
-export class Price extends React.Component {
+export class ProductPrice extends React.Component {
   render() {
     const { product, selectedCurrency } = this.props;
     return (

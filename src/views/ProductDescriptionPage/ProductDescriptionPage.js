@@ -1,8 +1,8 @@
 import React from 'react';
-import { Header } from '../../components/header/Header';
-import { AttributesList } from '../../components/attributesList/AttributesList';
-import { Price } from '../../components/price/Price';
-import ProductGallery from '../../components/productGallery/ProductGallery';
+import { Header } from '../../components/Header/Header';
+import { AttributesList } from '../../components/AttributesList/AttributesList';
+import { ProductPrice } from '../../components/ProductPrice/ProductPrice';
+import ProductGallery from '../../components/ProductGallery/ProductGallery';
 import { Button } from '../../components/Button/Button';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
@@ -47,7 +47,7 @@ class Product extends React.Component {
             <ProductBrand>{this.props.product.brand}</ProductBrand>
             <ProductName>{this.props.product.name}</ProductName>
             <AttributesList product={this.props.product} />
-            <Price
+            <ProductPrice
               product={this.props.product}
               selectedCurrency={this.props.selectedCurrency}
             />
