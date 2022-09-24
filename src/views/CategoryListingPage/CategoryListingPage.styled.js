@@ -6,6 +6,7 @@ export const CategoryWrapper = styled.div`
   width: 144rem;
   margin: 0 auto;
   overflow-x: hidden;
+
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
@@ -16,17 +17,17 @@ export const CategoryTitle = styled.h1`
   left: calc(50% - 299px / 2 - 46.95rem);
   top: 10rem;
 
-  font-family: 'Raleway';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 4.2rem;
-  line-height: 160%;
-  text-transform: capitalize;
-
   display: flex;
   align-items: center;
 
   color: ${({ theme }) => theme.colors.shark};
+
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-style: normal;
+  font-weight: 400;
+  font-size: ${({ theme }) => theme.fontSize.xxl};
+  line-height: 160%;
+  text-transform: capitalize;
 `;
 
 export const CategoryProductContainer = styled.div`

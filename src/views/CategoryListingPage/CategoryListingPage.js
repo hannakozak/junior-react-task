@@ -7,7 +7,7 @@ import {
   CategoryTitle,
   CategoryWrapper,
   CategoryProductContainer
-} from './Category.styled';
+} from './CategoryListingPage.styled';
 import { CategoryProduct } from '../../components/categoryProduct/CategoryProduct';
 import { Link } from 'react-router-dom';
 

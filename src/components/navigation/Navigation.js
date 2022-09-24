@@ -15,7 +15,7 @@ class Navigation extends React.Component {
           {this.props.fetchCategoriesStatus === 'SUCCESS' &&
             this.props.categories.map((category) => (
               <NavLink key={category.name}>
-                <Label to={`/category/${category.name}`} key={category.name}>
+                <Label to={`/${category.name}`} key={category.name}>
                   {category.name}
                 </Label>
               </NavLink>

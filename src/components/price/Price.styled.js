@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const PriceStyled = styled.div`
-  margin: 2rem 0;
+  margin-bottom: 2rem;
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 700;

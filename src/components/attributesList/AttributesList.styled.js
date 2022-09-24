@@ -5,7 +5,6 @@ export const AttributeColor = styled.div`
   height: 3.2rem;
   border: 1px solid ${({ theme }) => theme.colors.shark};
   margin-right: 1rem;
-  margin-bottom: 2rem;
 `;
 
 export const AttributeItem = styled.div`
@@ -14,7 +13,6 @@ export const AttributeItem = styled.div`
   padding: 0 1rem;
   border: 1px solid ${({ theme }) => theme.colors.shark};
   margin-right: 1rem;
-  margin-bottom: 2rem;
 
   color: ${({ theme }) => theme.colors.mineShaft};
 

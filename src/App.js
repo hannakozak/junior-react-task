@@ -1,14 +1,19 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Category from './views/category/Category';
+import CategoryListingPage from './views/CategoryListingPage/CategoryListingPage';
+import ProductDescriptionPage from './views/ProductDescriptionPage/ProductDescriptionPage';
 
 export class App extends React.Component {
   render() {
     return (
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Category />} />
-          <Route path="/category/:categoryName" element={<Category />} />
+          <Route path="/" element={<CategoryListingPage />} />
+          <Route path="/:categoryName" element={<CategoryListingPage />} />
+          <Route
+            path=":categoryName/:productId"
+            element={<ProductDescriptionPage />}
+          />
         </Routes>
       </BrowserRouter>
     );
