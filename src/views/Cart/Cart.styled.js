@@ -51,8 +51,8 @@ export const Main = styled.main`
 
 export const CartProduct = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  flex-direction: row;
+  justify-content: space-between;
   padding: 3rem 0;
   border-top: 1px solid ${({ theme }) => theme.colors.mercury};
 `;

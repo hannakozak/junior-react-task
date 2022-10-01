@@ -16,6 +16,7 @@ import {
   SummaryLabel,
   SummaryValue
 } from './Cart.styled';
+import { ProductSlider } from '../../components/ProductSlider/ProductSlider';
 
 class Cart extends React.Component {
   constructor(props) {
@@ -31,15 +32,21 @@ class Cart extends React.Component {
           {this.props.items &&
             this.props.items.map((item) => (
               <CartProduct key={item.id}>
-                <ProductBrand>{item.brand}</ProductBrand>
-                <ProductName>{item.name}</ProductName>
-                <ProductPrice
-                  prices={item.prices}
-                  selectedCurrency={this.props.selectedCurrency}
-                />
-                <CartAttributesList
-                  product={item}
-                  handleInput={this.handleInput}
+                <div>
+                  <ProductBrand>{item.brand}</ProductBrand>
+                  <ProductName>{item.name}</ProductName>
+                  <ProductPrice
+                    prices={item.prices}
+                    selectedCurrency={this.props.selectedCurrency}
+                  />
+                  <CartAttributesList
+                    product={item}
+                    handleInput={this.handleInput}
+                  />
+                </div>
+                <ProductSlider
+                  gallery={item.gallery}
+                  selectedPhoto={this.props.selectedPhoto}
                 />
               </CartProduct>
             ))}
@@ -70,7 +77,8 @@ class Cart extends React.Component {
 const mapStateToProps = (state) => ({
   items: state.cart.items,
   total: state.cart.total,
-  selectedCurrency: state.currencies.selectedCurrency
+  selectedCurrency: state.currencies.selectedCurrency,
+  selectedPhoto: state.product.selectedPhoto
 });
 
 export default withParams(connect(mapStateToProps)(Cart));
