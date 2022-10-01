@@ -14,7 +14,6 @@ export const fetchCategoryProducts = createAsyncThunk(
       query: categoryProductsQuery,
       variables: { category }
     });
-    console.log(response.data.category.products);
     return response.data.category.products;
   }
 );

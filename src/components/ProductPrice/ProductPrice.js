@@ -1,15 +1,13 @@
 import React from 'react';
-import { AttributeLabel } from '../AttributesList/AttributesList.styled';
 import { PriceStyled } from './ProductPrice.styled';
 
 export class ProductPrice extends React.Component {
   render() {
-    const { product, selectedCurrency } = this.props;
+    const { prices, selectedCurrency } = this.props;
     return (
       <>
-        <AttributeLabel>Price:</AttributeLabel>
-        {product.prices &&
-          product.prices
+        {prices &&
+          prices
             .filter((cur) => cur.currency.symbol === selectedCurrency)
             .map((price) => (
               <PriceStyled key={price.amount}>

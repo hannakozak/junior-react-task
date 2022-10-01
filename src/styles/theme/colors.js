@@ -3,6 +3,7 @@ export const colors = {
   mineShaft: '#292929',
   tuna: '#393748',
   grayChateau: '#a8acb0',
+  mercury: '#e5e5e5',
   emerald: '#5ECE7B',
   screaminGreen: '#5AEE87',
   easternBlue: '#15A4C3',

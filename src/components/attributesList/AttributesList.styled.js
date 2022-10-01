@@ -1,13 +1,24 @@
 import styled from 'styled-components';
 
-export const AttributeColor = styled.div`
+export const AttributeColor = styled.button`
   width: 3.2rem;
   height: 3.2rem;
   border: 1px solid ${({ theme }) => theme.colors.shark};
   margin-right: 1rem;
+
+  background-color: ${({ theme }) => theme.colors.white};
+
+  cursor: pointer;
+
+  &:hover,
+  :focus,
+  :active {
+    border: 1px solid ${({ theme }) => theme.colors.emerald};
+    outline: double ${({ theme }) => theme.colors.emerald};
+  }
 `;
 
-export const AttributeItem = styled.div`
+export const AttributeItem = styled.button`
   min-width: 6rem;
   min-height: 4.5rem;
   padding: 0 1rem;
@@ -15,6 +26,7 @@ export const AttributeItem = styled.div`
   margin-right: 1rem;
 
   color: ${({ theme }) => theme.colors.mineShaft};
+  background-color: ${({ theme }) => theme.colors.white};
 
   font-family: ${({ theme }) => theme.fontFamily.tertiary};
   font-size: ${({ theme }) => theme.fontSize.xxs};
@@ -24,6 +36,8 @@ export const AttributeItem = styled.div`
   line-height: 4.5rem;
   letter-spacing: 0.05em;
   align-self: center;
+
+  cursor: pointer;
 
   &:hover,
   :focus,

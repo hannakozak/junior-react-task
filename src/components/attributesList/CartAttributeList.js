@@ -6,12 +6,14 @@ import {
   AttributeLabel
 } from './AttributesList.styled';
 
-export class AttributesList extends React.Component {
+export class CartAttributesList extends React.Component {
   render() {
     const { product, handleInput } = this.props;
+
     return (
       <>
-        {product.attributes &&
+        {product.selectedAttributes &&
+          product.attributes &&
           product.attributes.map((attribute) => (
             <div key={attribute.id}>
               <AttributeLabel>{attribute.name}:</AttributeLabel>
@@ -21,7 +23,17 @@ export class AttributesList extends React.Component {
                       <AttributeColor
                         key={item.id}
                         style={{
-                          background: `${item.value}`
+                          background: `${item.value}`,
+                          outline:
+                            product.selectedAttributes[attribute.name] ===
+                            item.value
+                              ? `double #5ECE7B`
+                              : 'black',
+                          borderColor:
+                            product.selectedAttributes[attribute.name] ===
+                            item.value
+                              ? `#5ECE7B`
+                              : 'black'
                         }}
                         value={item.value}
                         name={attribute.name}
@@ -32,6 +44,18 @@ export class AttributesList extends React.Component {
                         key={item.id}
                         value={item.value}
                         name={attribute.name}
+                        style={{
+                          background:
+                            product.selectedAttributes[attribute.name] ===
+                            item.value
+                              ? 'black'
+                              : 'white',
+                          color:
+                            product.selectedAttributes[attribute.name] ===
+                            item.value
+                              ? 'white'
+                              : 'black'
+                        }}
                       >
                         {item.value}
                       </AttributeItem>

@@ -15,7 +15,6 @@ export const fetchProduct = createAsyncThunk(
       query: productQuery,
       variables: { productId }
     });
-    console.log(response.data.product);
     return response.data.product;
   }
 );

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 import { configureStore } from '@reduxjs/toolkit';
+import cartSlice from '../features/cart/cartSlice';
 import categoriesSlice from '../features/categories/categoriesSlice';
 import categoryProductsSlice from '../features/categoryProducts/categoryProductsSlice';
 import currenciesSlice from '../features/currencies/currenciesSlice';
@@ -20,13 +21,15 @@ const rootReducer = combineReducers({
   categories: categoriesSlice,
   categoryProducts: categoryProductsSlice,
   currencies: currenciesSlice,
-  product: productSlice
+  product: productSlice,
+  cart: cartSlice
 });
 
 const persistConfig = {
   key: 'root',
   version: 1,
-  storage
+  storage,
+  whitelist: ['cart']
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

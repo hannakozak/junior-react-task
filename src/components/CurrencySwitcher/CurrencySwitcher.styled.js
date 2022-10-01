@@ -24,7 +24,6 @@ export const CurrencyOption = styled.div`
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  font-size: 1.8rem;
   line-height: 160%;
   color: ${({ theme }) => theme.colors.shark};
 
@@ -40,7 +39,6 @@ export const CurrnecyCheckerView = styled.div`
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 500;
-  font-size: 18px;
   line-height: 160%;
   display: flex;
   align-items: flex-end;
