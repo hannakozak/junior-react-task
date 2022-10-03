@@ -60,7 +60,12 @@ export const cartSlice = createSlice({
       const exisitngItemIndex = state.items.indexOf(existingItem);
 
       let updatedItems;
-      if (existingItem) {
+      if (existingItem.amount === 1) {
+        updatedItems = state.items.filter(
+          (item) => item.id !== action.payload.id
+        );
+        state.items = updatedItems;
+      } else {
         const updatedItem = {
           ...existingItem,
           amount: existingItem.amount - 1
@@ -68,17 +73,15 @@ export const cartSlice = createSlice({
         updatedItems = [...state.items];
         updatedItems[exisitngItemIndex] = updatedItem;
         state.items = updatedItems;
-      } else state.items.push(action.payload);
+      }
     },
 
     reduceTotalPrice: (state, action) => {
-      if (state.total.length !== 0) {
-        state.total = state.total.map((item, index) => ({
-          __typename: 'Price',
-          currency: item.currency,
-          amount: item.amount - action.payload[index].amount
-        }));
-      } else state.total = action.payload;
+      state.total = state.total.map((item, index) => ({
+        __typename: 'Price',
+        currency: item.currency,
+        amount: item.amount - action.payload[index].amount
+      }));
     }
   }
 });

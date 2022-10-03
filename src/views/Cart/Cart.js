@@ -36,6 +36,12 @@ class Cart extends React.Component {
     this.increaseAmount = this.increaseAmount.bind(this);
     this.decreaseAmount = this.decreaseAmount.bind(this);
   }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.params !== prevProps.params) {
+      this.props.items;
+    }
+  }
   increaseAmount(item) {
     this.props.addItem({
       ...item,
@@ -45,13 +51,10 @@ class Cart extends React.Component {
   }
 
   decreaseAmount(item) {
-    if (item.amount > 1) {
-      this.props.removeItem({
-        ...item,
-        id: uuidv4()
-      });
-      this.props.reduceTotalPrice(item.prices);
-    } else return;
+    this.props.removeItem({
+      ...item
+    });
+    this.props.reduceTotalPrice(item.prices);
   }
 
   render() {

@@ -35,7 +35,10 @@ class Header extends React.Component {
           <CurrencySwitcher />
           <BasketIcon onClick={this.toggleCartVisibility}>
             <img src={basket} alt="SVG logo image" />
-            <BasketItemsAmount>{this.props.items.length}</BasketItemsAmount>
+
+            {this.props.items.length > 0 && (
+              <BasketItemsAmount>{this.props.items.length} </BasketItemsAmount>
+            )}
           </BasketIcon>
           {this.state.isCartVissible === true && <Cart />}
         </Actions>
