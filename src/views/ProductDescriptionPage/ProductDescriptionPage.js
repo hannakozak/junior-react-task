@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import { AttributesList } from '../../components/AttributesList/AttributesList';
 import { ProductPrice } from '../../components/ProductPrice/ProductPrice';
 import ProductGallery from '../../components/ProductGallery/ProductGallery';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header } from '../../components/Header/Header';
+import Header from '../../components/Header/Header';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import { fetchCategoryProducts } from '../../features/categoryProducts/categoryProductsSlice';
@@ -51,7 +51,8 @@ class CategoryListingPage extends React.Component {
 const mapStateToProps = (state) => ({
   products: state.categoryProducts.products,
   fetchProductsStatus: state.categoryProducts.fetchProductsStatus,
-  selectedCurrency: state.currencies.selectedCurrency
+  selectedCurrency: state.currencies.selectedCurrency,
+  items: state.cart.items
 });
 
 export default withParams(

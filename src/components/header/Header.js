@@ -1,12 +1,19 @@
 import React from 'react';
-import { HeaderWrapper, Actions } from './Header.styled';
 import Navigation from '../Navigation/Navigation';
 import { Logo } from '../Logo/Logo';
-import basket from '../../images/basket.svg';
 import CurrencySwitcher from '../CurrencySwitcher/CurrencySwitcher';
 import Cart from '../../views/Cart/Cart';
+import { withParams } from '../../helpers/withParams';
+import { connect } from 'react-redux';
+import {
+  HeaderWrapper,
+  Actions,
+  BasketItemsAmount,
+  BasketIcon
+} from './Header.styled';
+import basket from '../../images/basket.svg';
 
-export class Header extends React.Component {
+class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = { isCartVissible: false };
@@ -26,13 +33,19 @@ export class Header extends React.Component {
         <Logo />
         <Actions>
           <CurrencySwitcher />
-          <div onClick={this.toggleCartVisibility}>
+          <BasketIcon onClick={this.toggleCartVisibility}>
             <img src={basket} alt="SVG logo image" />
-          </div>
-
+            <BasketItemsAmount>{this.props.items.length}</BasketItemsAmount>
+          </BasketIcon>
           {this.state.isCartVissible === true && <Cart />}
         </Actions>
       </HeaderWrapper>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  items: state.cart.items
+});
+
+export default withParams(connect(mapStateToProps)(Header));

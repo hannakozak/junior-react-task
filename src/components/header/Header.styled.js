@@ -22,3 +22,31 @@ export const Actions = styled.div`
   right: 10.1rem;
   top: 2.3rem;
 `;
+
+export const BasketItemsAmount = styled.div`
+  position: absolute;
+  right: -1rem;
+  top: 0;
+
+  display: table-cell;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+
+  background: ${({ theme }) => theme.colors.shark};
+  color: ${({ theme }) => theme.colors.white};
+
+  font-family: ${({ theme }) => theme.fontFamily.secondary};
+  font-style: normal;
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  vertical-align: middle;
+`;
+
+export const BasketIcon = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
