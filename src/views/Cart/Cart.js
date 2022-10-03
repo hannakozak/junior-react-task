@@ -5,6 +5,14 @@ import { CartAttributesList } from '../../components/AttributesList/CartAttribut
 import { Button } from '../../components/Button/Button';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
+import plus from '../../images/plus.svg';
+import minus from '../../images/minus.svg';
+import {
+  addItem,
+  removeItem,
+  calculateTotalPrice,
+  reduceTotalPrice
+} from '../../features/cart/cartSlice';
 import {
   CartWrapper,
   ProductBrand,
@@ -14,13 +22,36 @@ import {
   Title,
   Summary,
   SummaryLabel,
-  SummaryValue
+  SummaryValue,
+  Icon,
+  CartAction,
+  CartActionButtons
 } from './Cart.styled';
 import { ProductSlider } from '../../components/ProductSlider/ProductSlider';
+import { v4 as uuidv4 } from 'uuid';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
+    this.increaseAmount = this.increaseAmount.bind(this);
+    this.decreaseAmount = this.decreaseAmount.bind(this);
+  }
+  increaseAmount(item) {
+    this.props.addItem({
+      ...item,
+      id: uuidv4()
+    });
+    this.props.calculateTotalPrice(item.prices);
+  }
+
+  decreaseAmount(item) {
+    if (item.amount > 1) {
+      this.props.removeItem({
+        ...item,
+        id: uuidv4()
+      });
+      this.props.reduceTotalPrice(item.prices);
+    } else return;
   }
 
   render() {
@@ -44,10 +75,28 @@ class Cart extends React.Component {
                     handleInput={this.handleInput}
                   />
                 </div>
-                <ProductSlider
-                  gallery={item.gallery}
-                  selectedPhoto={this.props.selectedPhoto}
-                />
+                <CartAction>
+                  <CartActionButtons>
+                    <Icon>
+                      <img
+                        src={plus}
+                        onClick={() => this.increaseAmount(item)}
+                      />
+                    </Icon>
+                    {item.amount}
+                    <Icon>
+                      <img
+                        src={minus}
+                        onClick={() => this.decreaseAmount(item)}
+                      />
+                    </Icon>
+                  </CartActionButtons>
+
+                  <ProductSlider
+                    gallery={item.gallery}
+                    selectedPhoto={this.props.selectedPhoto}
+                  />
+                </CartAction>
               </CartProduct>
             ))}
           <Summary>
@@ -81,4 +130,11 @@ const mapStateToProps = (state) => ({
   selectedPhoto: state.product.selectedPhoto
 });
 
-export default withParams(connect(mapStateToProps)(Cart));
+export default withParams(
+  connect(mapStateToProps, {
+    addItem,
+    removeItem,
+    reduceTotalPrice,
+    calculateTotalPrice
+  })(Cart)
+);

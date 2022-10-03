@@ -23,7 +23,7 @@ import { AttributeLabel } from '../../components/AttributesList/AttributesList.s
 class ProductDescriptionPage extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { selectedAttr: [] };
+    this.state = { selectedAttr: [], amount: 1 };
 
     this.addToBasketHandler = this.addToBasketHandler.bind(this);
     this.handleInput = this.handleInput.bind(this);
@@ -61,7 +61,8 @@ class ProductDescriptionPage extends React.Component {
       attributes: this.props.product.attributes,
       prices: this.props.product.prices,
       gallery: this.props.product.gallery,
-      selectedAttributes: this.state.selectedAttr
+      selectedAttributes: this.state.selectedAttr,
+      amount: this.state.amount
     });
     this.props.calculateTotalPrice(this.props.product.prices);
   }

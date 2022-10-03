@@ -86,3 +86,22 @@ export const SummaryValue = styled.div`
   font-size: ${({ theme }) => theme.fontSize.sm};
   line-height: 2.8rem;
 `;
+
+export const Icon = styled.div`
+  width: 4.5rem;
+  height: 4.5rem;
+  cursor: pointer;
+`;
+
+export const CartAction = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+`;
+
+export const CartActionButtons = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+`;

@@ -10,22 +10,28 @@ export const cartSlice = createSlice({
   initialState,
   reducers: {
     addItem: (state, action) => {
-      if (state.items.length !== 0) {
-        if (
-          state.items.find((item) => {
-            if (item.name === action.payload.name) {
-              for (let key of Object.keys(action.payload.selectedAttributes)) {
-                if (
-                  action.payload.selectedAttributes[key] ===
-                  item.selectedAttributes[key]
-                )
-                  return true;
-              }
-            }
-          })
-        ) {
-          return;
-        } else state.items.push(action.payload);
+      const existingItem = state.items.find((item) => {
+        if (item.name === action.payload.name) {
+          for (let key of Object.keys(action.payload.selectedAttributes)) {
+            if (
+              action.payload.selectedAttributes[key] ===
+              item.selectedAttributes[key]
+            )
+              return true;
+          }
+        }
+      });
+      const exisitngItemIndex = state.items.indexOf(existingItem);
+
+      let updatedItems;
+      if (existingItem) {
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount + 1
+        };
+        updatedItems = [...state.items];
+        updatedItems[exisitngItemIndex] = updatedItem;
+        state.items = updatedItems;
       } else state.items.push(action.payload);
     },
 
@@ -37,9 +43,46 @@ export const cartSlice = createSlice({
           amount: item.amount + action.payload[index].amount
         }));
       } else state.total = action.payload;
+    },
+
+    removeItem: (state, action) => {
+      const existingItem = state.items.find((item) => {
+        if (item.name === action.payload.name) {
+          for (let key of Object.keys(action.payload.selectedAttributes)) {
+            if (
+              action.payload.selectedAttributes[key] ===
+              item.selectedAttributes[key]
+            )
+              return true;
+          }
+        }
+      });
+      const exisitngItemIndex = state.items.indexOf(existingItem);
+
+      let updatedItems;
+      if (existingItem) {
+        const updatedItem = {
+          ...existingItem,
+          amount: existingItem.amount - 1
+        };
+        updatedItems = [...state.items];
+        updatedItems[exisitngItemIndex] = updatedItem;
+        state.items = updatedItems;
+      } else state.items.push(action.payload);
+    },
+
+    reduceTotalPrice: (state, action) => {
+      if (state.total.length !== 0) {
+        state.total = state.total.map((item, index) => ({
+          __typename: 'Price',
+          currency: item.currency,
+          amount: item.amount - action.payload[index].amount
+        }));
+      } else state.total = action.payload;
     }
   }
 });
 
-export const { addItem, calculateTotalPrice } = cartSlice.actions;
+export const { addItem, removeItem, reduceTotalPrice, calculateTotalPrice } =
+  cartSlice.actions;
 export default cartSlice.reducer;

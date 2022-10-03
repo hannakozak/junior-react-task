@@ -6,7 +6,6 @@ export const SliderWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-right: 10rem;
 `;
 
 export const Icon = styled.div`
@@ -17,8 +16,8 @@ export const Icon = styled.div`
 export const ArrowIcons = styled.div`
   position: absolute;
   z-index: 100;
-  bottom: 1rem;
-  right: 11rem;
+  bottom: 2rem;
+  right: 1rem;
 
   display: flex;
   flex-direction: row;
@@ -26,12 +25,12 @@ export const ArrowIcons = styled.div`
 `;
 
 export const SelectedPhoto = styled.div`
-  min-width: 20rem;
-  height: 28.8rem;
+  width: 22rem;
+
   text-align: center;
   & img {
-    min-width: 20rem;
-    height: 28.8rem;
+    width: 22rem;
+
     object-fit: cover;
   }
 `;
