@@ -7,6 +7,17 @@ export const categoryProductsQuery = gql`
       products {
         id
         name
+        brand
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
         prices {
           currency {
             label

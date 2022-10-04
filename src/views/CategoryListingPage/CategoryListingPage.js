@@ -8,7 +8,7 @@ import {
   CategoryWrapper,
   CategoryProductContainer
 } from './CategoryListingPage.styled';
-import { CategoryProduct } from '../../components/CategoryProduct/CategoryProduct';
+import CategoryProduct from '../../components/CategoryProduct/CategoryProduct';
 import { Link } from 'react-router-dom';
 
 class CategoryListingPage extends React.Component {
@@ -17,7 +17,7 @@ class CategoryListingPage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchCategoryProducts(this.props.params.categoryName);
+    this.props.fetchCategoryProducts(this.props.params.categoryName || 'all');
   }
 
   componentDidUpdate(prevProps) {
