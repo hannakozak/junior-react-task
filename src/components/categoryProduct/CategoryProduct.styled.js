@@ -45,3 +45,14 @@ export const BasketIcon = styled.div`
   right: 2rem;
   bottom: 2rem;
 `;
+
+export const PriceStyled = styled.div`
+  color: ${({ theme }) => theme.colors.shark};
+
+  margin-bottom: 2rem;
+  font-family: ${({ theme }) => theme.fontFamily.primary};
+  font-style: normal;
+  font-weight: 500;
+  font-size: ${({ theme }) => theme.fontSize.sm};
+  line-height: 160%;
+`;

@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const LogoWrapper = styled.div`
   position: absolute;
-  width: 41px;
-  height: 41px;
-  left: 699px;
+  left: 69.9rem;
   top: calc(50% - 41px / 2 + 4.5px);
+
+  width: 4.1rem;
+  height: 4.1rem;
 `;

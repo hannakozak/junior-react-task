@@ -25,7 +25,8 @@ import {
   SummaryValue,
   Icon,
   CartAction,
-  CartActionButtons
+  CartActionButtons,
+  ProductDetails
 } from './Cart.styled';
 import { ProductSlider } from '../../components/ProductSlider/ProductSlider';
 import { v4 as uuidv4 } from 'uuid';
@@ -65,8 +66,8 @@ class Cart extends React.Component {
         <Main>
           {this.props.items &&
             this.props.items.map((item) => (
-              <CartProduct key={item.id}>
-                <div>
+              <CartProduct key={uuidv4()}>
+                <ProductDetails>
                   <ProductBrand>{item.brand}</ProductBrand>
                   <ProductName>{item.name}</ProductName>
                   <ProductPrice
@@ -77,7 +78,7 @@ class Cart extends React.Component {
                     product={item}
                     handleInput={this.handleInput}
                   />
-                </div>
+                </ProductDetails>
                 <CartAction>
                   <CartActionButtons>
                     <Icon>

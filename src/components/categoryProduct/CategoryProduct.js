@@ -6,7 +6,8 @@ import {
   Product,
   ProductDetails,
   ProductImage,
-  BasketIcon
+  BasketIcon,
+  PriceStyled
 } from './CategoryProduct.styled';
 import basket from '../../images/basket-white.svg';
 import { v4 as uuidv4 } from 'uuid';
@@ -72,9 +73,9 @@ class CategoryProduct extends React.Component {
                   currency.currency.symbol === this.props.selectedCurrency
               )
               .map((price) => (
-                <div key={uuidv4()}>
+                <PriceStyled key={uuidv4()}>
                   {price.currency.symbol} {price.amount}
-                </div>
+                </PriceStyled>
               ))}
           </div>
         </ProductDetails>

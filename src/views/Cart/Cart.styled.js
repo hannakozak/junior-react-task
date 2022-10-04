@@ -105,3 +105,9 @@ export const CartActionButtons = styled.div`
   justify-content: space-between;
   align-items: center;
 `;
+
+export const ProductDetails = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+`;

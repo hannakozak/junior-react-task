@@ -9,18 +9,18 @@ export const HeaderWrapper = styled.div`
 `;
 
 export const Actions = styled.div`
+  position: absolute;
+  right: 10.1rem;
+  top: 2.3rem;
+
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
-  padding: 0;
-  gap: 2.2rem;
-
-  position: absolute;
   width: 20.4rem;
   height: 4rem;
-  right: 10.1rem;
-  top: 2.3rem;
+  padding: 0;
+  gap: 2.2rem;
 `;
 
 export const BasketItemsAmount = styled.div`

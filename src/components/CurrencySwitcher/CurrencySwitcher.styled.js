@@ -2,16 +2,20 @@ import styled from 'styled-components';
 
 export const CurrencyDropdown = styled.div`
   position: absolute;
-  width: 114px;
-  min-height: 200px;
-  top: 65px;
-  right: 0px;
+  z-index: 101;
+  top: 6.5rem;
+  right: 0rem;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 11.4rem;
+  min-height: 20rem;
   box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.25);
   filter: drop-shadow(0px 4px 35px rgba(168, 172, 176, 0.25));
+
+  background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const CurrencyOption = styled.div`
@@ -19,13 +23,15 @@ export const CurrencyOption = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: 50px;
   width: 100%;
-  font-family: 'Raleway';
+  height: 5rem;
+
+  color: ${({ theme }) => theme.colors.shark};
+
+  font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 500;
   line-height: 160%;
-  color: ${({ theme }) => theme.colors.shark};
 
   &:hover {
     background-color: ${({ theme }) => theme.colors.gallery};
@@ -34,15 +40,18 @@ export const CurrencyOption = styled.div`
 `;
 
 export const CurrnecyCheckerView = styled.div`
-  width: 38px;
-  height: 29px;
-  font-family: 'Raleway';
+  display: flex;
+  align-items: flex-end;
+  width: 3.8rem;
+  height: 2.9rem;
+
+  color: ${({ theme }) => theme.colors.shark};
+
+  font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 500;
   line-height: 160%;
-  display: flex;
-  align-items: flex-end;
-  color: ${({ theme }) => theme.colors.shark};
+
   & img {
     position: absolute;
     left: 76.47%;
@@ -55,5 +64,5 @@ export const CurrencyPrice = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0px;
+  padding: 0rem;
 `;

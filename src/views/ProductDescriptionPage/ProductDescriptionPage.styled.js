@@ -28,33 +28,33 @@ export const Description = styled.div`
   height: 20rem;
   overflow: auto;
 
+  color: ${({ theme }) => theme.colors.shark};
+
   font-family: ${({ theme }) => theme.fontFamily.description};
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.xxs};
   line-height: 2.6rem;
   margin-bottom: 5rem;
-
-  color: ${({ theme }) => theme.colors.shark};
 `;
 
 export const ProductBrand = styled.div`
+  color: ${({ theme }) => theme.colors.shark};
+
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 600;
   font-size: ${({ theme }) => theme.fontSize.xl};
   line-height: 2.7rem;
-
-  color: ${({ theme }) => theme.colors.shark};
 `;
 
 export const ProductName = styled.div`
+  color: ${({ theme }) => theme.colors.shark};
+
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 400;
   font-size: ${({ theme }) => theme.fontSize.xl};
   line-height: 2.7rem;
   margin-bottom: 2rem;
-
-  color: ${({ theme }) => theme.colors.shark};
 `;

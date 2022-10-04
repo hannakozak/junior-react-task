@@ -2,14 +2,16 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 export const NavigationWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  padding: 0;
   position: absolute;
-  height: 5.6rem;
-  width: 100%;
   left: 10.1rem;
   bottom: 0;
+
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 5.6rem;
+  padding: 0;
+
   & nav {
     display: flex;
     justify-content: flex-start;
@@ -21,15 +23,17 @@ export const NavigationWrapper = styled.div`
 `;
 
 export const Label = styled(Link)`
+  color: ${({ theme }) => theme.colors.tuna};
+
+  padding: 2rem;
+  padding-bottom: 3rem;
+
   font-family: ${({ theme }) => theme.fontFamily.primary};
   font-style: normal;
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 120%;
   text-transform: uppercase;
-  padding: 2rem;
-  padding-bottom: 3rem;
-  color: ${({ theme }) => theme.colors.tuna};
 
   &:focus,
   :active {
