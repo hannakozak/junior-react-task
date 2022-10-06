@@ -7,7 +7,11 @@ import { Button } from '../../components/Button/Button';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import { fetchProduct, selectPhoto } from '../../features/product/productSlice';
-import { addItem, calculateTotalPrice } from '../../features/cart/cartSlice';
+import {
+  addItem,
+  calculateTotalPrice,
+  calculateTax
+} from '../../features/cart/cartSlice';
 import {
   ProductWrapper,
   Main,
@@ -65,6 +69,7 @@ class ProductDescriptionPage extends React.Component {
       amount: 1
     });
     this.props.calculateTotalPrice(this.props.product.prices);
+    this.props.calculateTax();
   }
 
   render() {
@@ -114,6 +119,7 @@ export default withParams(
     fetchProduct,
     selectPhoto,
     addItem,
-    calculateTotalPrice
+    calculateTotalPrice,
+    calculateTax
   })(ProductDescriptionPage)
 );

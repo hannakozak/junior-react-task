@@ -1,5 +1,9 @@
 import React from 'react';
-import { addItem, calculateTotalPrice } from '../../features/cart/cartSlice';
+import {
+  addItem,
+  calculateTotalPrice,
+  calculateTax
+} from '../../features/cart/cartSlice';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import {
@@ -47,6 +51,7 @@ class CategoryProduct extends React.Component {
       amount: 1
     });
     this.props.calculateTotalPrice(this.props.product.prices);
+    this.props.calculateTax();
   }
 
   render() {
@@ -92,5 +97,7 @@ const mapStateToProps = (state) => ({
 });
 
 export default withParams(
-  connect(mapStateToProps, { addItem, calculateTotalPrice })(CategoryProduct)
+  connect(mapStateToProps, { addItem, calculateTotalPrice, calculateTax })(
+    CategoryProduct
+  )
 );

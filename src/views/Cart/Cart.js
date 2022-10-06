@@ -41,6 +41,12 @@ class Cart extends React.Component {
           <Summary>
             <div>
               <SummaryLabel>Tax 21%:</SummaryLabel>
+              <ProductPrice
+                fontSize={2.4}
+                fontWeight={700}
+                prices={this.props.tax}
+                selectedCurrency={this.props.selectedCurrency}
+              />
             </div>
 
             <div>
@@ -70,7 +76,8 @@ const mapStateToProps = (state) => ({
   items: state.cart.items,
   total: state.cart.total,
   selectedCurrency: state.currencies.selectedCurrency,
-  selectedPhoto: state.product.selectedPhoto
+  selectedPhoto: state.product.selectedPhoto,
+  tax: state.cart.tax
 });
 
 export default withParams(

@@ -8,7 +8,8 @@ import {
   addItem,
   removeItem,
   calculateTotalPrice,
-  reduceTotalPrice
+  reduceTotalPrice,
+  calculateTax
 } from '../../features/cart/cartSlice';
 import {
   CartItemWrapper,
@@ -37,6 +38,7 @@ class CartItem extends React.Component {
       id: uuidv4()
     });
     this.props.calculateTotalPrice(item.prices);
+    this.props.calculateTax();
   }
 
   decreaseAmount(item) {
@@ -44,6 +46,7 @@ class CartItem extends React.Component {
       ...item
     });
     this.props.reduceTotalPrice(item.prices);
+    this.props.calculateTax();
   }
 
   render() {
@@ -89,6 +92,7 @@ export default withParams(
     addItem,
     removeItem,
     reduceTotalPrice,
-    calculateTotalPrice
+    calculateTotalPrice,
+    calculateTax
   })(CartItem)
 );

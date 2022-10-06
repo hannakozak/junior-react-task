@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   items: [],
-  total: []
+  total: [],
+  tax: []
 };
 
 export const cartSlice = createSlice({
@@ -82,10 +83,24 @@ export const cartSlice = createSlice({
         currency: item.currency,
         amount: item.amount - action.payload[index].amount
       }));
+    },
+
+    calculateTax: (state) => {
+      const taxRate = 0.21;
+      state.tax = state.total.map((item) => ({
+        __typename: 'Price',
+        currency: item.currency,
+        amount: taxRate * item.amount
+      }));
     }
   }
 });
 
-export const { addItem, removeItem, reduceTotalPrice, calculateTotalPrice } =
-  cartSlice.actions;
+export const {
+  addItem,
+  removeItem,
+  reduceTotalPrice,
+  calculateTotalPrice,
+  calculateTax
+} = cartSlice.actions;
 export default cartSlice.reducer;
