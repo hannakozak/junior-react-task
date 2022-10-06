@@ -18,8 +18,26 @@ class CurrencySwitcher extends React.Component {
     super(props);
     this.state = { isSwitcherVissible: false };
 
+    this.wrapperRef = React.createRef();
+
     this.handleChange = this.handleChange.bind(this);
     this.toggleSwitcherVisibility = this.toggleSwitcherVisibility.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
+
+  componentDidMount() {
+    this.props.fetchCurrencies();
+    document.addEventListener('click', this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.handleClickOutside);
+  }
+
+  handleClickOutside(event) {
+    if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
+      this.toggleSwitcherVisibility();
+    }
   }
 
   toggleSwitcherVisibility() {
@@ -27,19 +45,19 @@ class CurrencySwitcher extends React.Component {
       isSwitcherVissible: !prevState.isSwitcherVissible
     }));
   }
+
   handleChange(currency) {
     this.props.selectCurrency(currency);
-    this.toggleSwitcherVisibility();
-  }
-
-  componentDidMount() {
-    this.props.fetchCurrencies();
+    this.handleClickOutside();
   }
 
   render() {
     return (
       <>
-        <CurrnecyCheckerView onClick={this.toggleSwitcherVisibility}>
+        <CurrnecyCheckerView
+          onClick={this.toggleSwitcherVisibility}
+          ref={this.wrapperRef}
+        >
           {this.props.selectedCurrency}
           {this.state.isSwitcherVissible ? (
             <img src={arrowUp} alt="arrow closes currency dropdown" />
