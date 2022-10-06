@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const CurrencyDropdown = styled.div`
   position: absolute;
-  z-index: 200;
+  z-index: 2;
   top: 6.5rem;
   right: 0rem;
 

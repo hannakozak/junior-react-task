@@ -3,13 +3,12 @@ import styled from 'styled-components';
 export const MiniCartWrapper = styled.div`
   display: flex;
   flex-direction: column;
-
+  z-index: 1;
   position: absolute;
   width: 36.5rem;
   height: 60rem;
   right: 15rem;
   top: 0rem;
-  z-index: 150;
   overflow: auto;
 
   background-color: ${({ theme }) => theme.colors.white};
@@ -62,7 +61,7 @@ export const Summary = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  margin: 2rem 0;
+  padding: 0 1rem;
 `;
 
 export const SummaryLabel = styled.div`

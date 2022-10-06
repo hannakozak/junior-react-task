@@ -36,7 +36,9 @@ class CurrencySwitcher extends React.Component {
 
   handleClickOutside(event) {
     if (this.wrapperRef && !this.wrapperRef.current.contains(event.target)) {
-      this.toggleSwitcherVisibility();
+      this.setState(() => ({
+        isSwitcherVissible: false
+      }));
     }
   }
 
@@ -46,9 +48,9 @@ class CurrencySwitcher extends React.Component {
     }));
   }
 
-  handleChange(currency) {
+  handleChange(currency, event) {
     this.props.selectCurrency(currency);
-    this.handleClickOutside();
+    this.handleClickOutside(event);
   }
 
   render() {
@@ -72,7 +74,7 @@ class CurrencySwitcher extends React.Component {
                 <CurrencyOption
                   key={currency.label}
                   value={currency.symbol}
-                  onClick={() => this.handleChange(currency.symbol)}
+                  onClick={(event) => this.handleChange(currency.symbol, event)}
                 >
                   <CurrencyPrice>
                     {currency.symbol} {currency.label}
