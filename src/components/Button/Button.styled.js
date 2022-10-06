@@ -1,9 +1,11 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
-export const ButtonLabel = styled.div`
+export const ButtonStyled = styled.button`
   display: flex;
+  flex-direction: column;
   align-items: center;
 
+  background-color: ${({ theme }) => theme.colors.emerald};
   color: ${({ theme }) => theme.colors.white};
 
   font-family: ${({ theme }) => theme.fontFamily.primary};
@@ -13,25 +15,31 @@ export const ButtonLabel = styled.div`
   line-height: 120%;
   text-align: center;
   text-transform: uppercase;
+  width: 100%;
+  min-height: 5.2rem;
+  padding: 1.6rem 4rem;
+  border: none;
 
   cursor: pointer;
-`;
-
-export const ButtonWrapper = styled.button`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  background: ${({ theme }) => theme.colors.emerald};
-
-  width: 29.2rem;
-  height: 5.2rem;
-  padding: 1.6rem 3.2rem;
-  border: none;
 
   &:hover,
   :focus,
   :active {
     background-color: ${({ theme }) => theme.colors.screaminGreen};
   }
+
+  ${(props) =>
+    props.secondary &&
+    css`
+      background-color: ${({ theme }) => theme.colors.white};
+      color: ${({ theme }) => theme.colors.shark};
+      border: 1px solid ${({ theme }) => theme.colors.shark};
+      &:hover,
+      :focus,
+      :active {
+        background-color: ${({ theme }) => theme.colors.white};
+        color: ${({ theme }) => theme.colors.emerald};
+        border: 1px solid ${({ theme }) => theme.colors.emerald};
+      }
+    `}
 `;

@@ -2,14 +2,15 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import { Logo } from '../Logo/Logo';
 import CurrencySwitcher from '../CurrencySwitcher/CurrencySwitcher';
-import Cart from '../../views/Cart/Cart';
+import MiniCart from '../miniCart/MiniCart';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import {
   HeaderWrapper,
   Actions,
   BasketItemsAmount,
-  BasketIcon
+  BasketIcon,
+  Overlay
 } from './Header.styled';
 import basket from '../../images/basket.svg';
 
@@ -40,7 +41,11 @@ class Header extends React.Component {
               <BasketItemsAmount>{this.props.items.length} </BasketItemsAmount>
             )}
           </BasketIcon>
-          {this.state.isCartVissible === true && <Cart />}
+          {this.state.isCartVissible === true && (
+            <Overlay>
+              <MiniCart />
+            </Overlay>
+          )}
         </Actions>
       </HeaderWrapper>
     );

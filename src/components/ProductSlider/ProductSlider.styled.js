@@ -15,7 +15,7 @@ export const Icon = styled.div`
 
 export const ArrowIcons = styled.div`
   position: absolute;
-  z-index: 100;
+  z-index: 50;
   bottom: 2rem;
   right: 1rem;
 
@@ -25,12 +25,9 @@ export const ArrowIcons = styled.div`
 `;
 
 export const SelectedPhoto = styled.div`
-  width: 22rem;
-
   text-align: center;
   & img {
-    width: 22rem;
-
+    width: 100%;
     object-fit: cover;
   }
 `;

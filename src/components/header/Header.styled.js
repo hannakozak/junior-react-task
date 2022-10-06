@@ -1,11 +1,13 @@
 import styled from 'styled-components';
 
 export const HeaderWrapper = styled.div`
-  position: absolute;
+  position: fixed;
   width: 144rem;
   height: 8rem;
   left: 0;
+  right: 0;
   top: 0;
+  z-index: 100;
 `;
 
 export const Actions = styled.div`
@@ -49,4 +51,23 @@ export const BasketItemsAmount = styled.div`
 export const BasketIcon = styled.div`
   display: flex;
   flex-direction: row;
+`;
+
+export const CartWrapper = styled.div`
+  position: absolute;
+  top: 20px;
+  right: 20rem;
+  background: red;
+`;
+
+export const Overlay = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  top: 78px;
+
+  background: rgba(57, 55, 72, 0.22);
 `;

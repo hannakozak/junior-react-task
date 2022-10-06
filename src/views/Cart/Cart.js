@@ -1,12 +1,11 @@
 import React from 'react';
 import Header from '../../components/Header/Header';
 import { ProductPrice } from '../../components/ProductPrice/ProductPrice';
-import { CartAttributesList } from '../../components/AttributesList/CartAttributeList';
+import CartItem from '../../components/CartItem/CartItem';
 import { Button } from '../../components/Button/Button';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
-import plus from '../../images/plus.svg';
-import minus from '../../images/minus.svg';
+
 import {
   addItem,
   removeItem,
@@ -15,47 +14,18 @@ import {
 } from '../../features/cart/cartSlice';
 import {
   CartWrapper,
-  ProductBrand,
-  ProductName,
   Main,
-  CartProduct,
   Title,
   Summary,
   SummaryLabel,
   SummaryValue,
-  Icon,
-  CartAction,
-  CartActionButtons,
-  ProductDetails
+  ButtonAction
 } from './Cart.styled';
-import { ProductSlider } from '../../components/ProductSlider/ProductSlider';
 import { v4 as uuidv4 } from 'uuid';
 
 class Cart extends React.Component {
   constructor(props) {
     super(props);
-    this.increaseAmount = this.increaseAmount.bind(this);
-    this.decreaseAmount = this.decreaseAmount.bind(this);
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.params !== prevProps.params) {
-      this.props.items;
-    }
-  }
-  increaseAmount(item) {
-    this.props.addItem({
-      ...item,
-      id: uuidv4()
-    });
-    this.props.calculateTotalPrice(item.prices);
-  }
-
-  decreaseAmount(item) {
-    this.props.removeItem({
-      ...item
-    });
-    this.props.reduceTotalPrice(item.prices);
   }
 
   render() {
@@ -66,42 +36,7 @@ class Cart extends React.Component {
         <Main>
           {this.props.items &&
             this.props.items.map((item) => (
-              <CartProduct key={uuidv4()}>
-                <ProductDetails>
-                  <ProductBrand>{item.brand}</ProductBrand>
-                  <ProductName>{item.name}</ProductName>
-                  <ProductPrice
-                    prices={item.prices}
-                    selectedCurrency={this.props.selectedCurrency}
-                  />
-                  <CartAttributesList
-                    product={item}
-                    handleInput={this.handleInput}
-                  />
-                </ProductDetails>
-                <CartAction>
-                  <CartActionButtons>
-                    <Icon>
-                      <img
-                        src={plus}
-                        onClick={() => this.increaseAmount(item)}
-                      />
-                    </Icon>
-                    {item.amount}
-                    <Icon>
-                      <img
-                        src={minus}
-                        onClick={() => this.decreaseAmount(item)}
-                      />
-                    </Icon>
-                  </CartActionButtons>
-
-                  <ProductSlider
-                    gallery={item.gallery}
-                    selectedPhoto={this.props.selectedPhoto}
-                  />
-                </CartAction>
-              </CartProduct>
+              <CartItem key={uuidv4()} item={item} />
             ))}
           <Summary>
             <div>
@@ -115,12 +50,16 @@ class Cart extends React.Component {
             <div>
               <SummaryLabel> Total:</SummaryLabel>
               <ProductPrice
+                fontSize={2.4}
+                fontWeight={700}
                 prices={this.props.total}
                 selectedCurrency={this.props.selectedCurrency}
               />
             </div>
           </Summary>
-          <Button>order</Button>
+          <ButtonAction>
+            <Button>order</Button>
+          </ButtonAction>
         </Main>
       </CartWrapper>
     );

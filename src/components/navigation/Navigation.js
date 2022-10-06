@@ -20,9 +20,6 @@ class Navigation extends React.Component {
                 </Label>
               </NavLink>
             ))}
-          <NavLink>
-            <Label to="/cart">cart</Label>
-          </NavLink>
         </nav>
       </NavigationWrapper>
     );

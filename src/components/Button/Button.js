@@ -1,13 +1,13 @@
 import React from 'react';
-import { ButtonWrapper, ButtonLabel } from './Button.styled';
+import { ButtonStyled } from './Button.styled';
 
 export class Button extends React.Component {
   render() {
-    const { type, onClick, children } = this.props;
+    const { type, onClick, children, ...props } = this.props;
     return (
-      <ButtonWrapper type={type} onClick={onClick}>
-        <ButtonLabel>{children ? <div>{children}</div> : null}</ButtonLabel>
-      </ButtonWrapper>
+      <ButtonStyled type={type} onClick={onClick} {...props}>
+        {children ? <div>{children}</div> : null}
+      </ButtonStyled>
     );
   }
 }
