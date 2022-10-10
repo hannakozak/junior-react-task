@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
+import Header from '../../components/header/Header';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import { fetchCategoryProducts } from '../../features/categoryProducts/categoryProductsSlice';
@@ -8,7 +8,7 @@ import {
   CategoryWrapper,
   CategoryProductContainer
 } from './CategoryListingPage.styled';
-import CategoryProduct from '../../components/CategoryProduct/CategoryProduct';
+import CategoryProduct from '../../components/categoryProduct/CategoryProduct';
 import { Link } from 'react-router-dom';
 
 class CategoryListingPage extends React.Component {

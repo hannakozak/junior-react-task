@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../../components/Header/Header';
-import { AttributesList } from '../../components/AttributesList/AttributesList';
+import Header from '../../components/header/Header';
+import { AttributesList } from '../../components/attributesList/AttributesList';
 import { ProductPrice } from '../../components/ProductPrice/ProductPrice';
-import ProductGallery from '../../components/ProductGallery/ProductGallery';
+import ProductGallery from '../../components/productGallery/ProductGallery';
 import { Button } from '../../components/Button/Button';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
@@ -22,7 +22,7 @@ import {
 } from './ProductDescriptionPage.styled';
 import DOMPurify from 'dompurify';
 import { v4 as uuidv4 } from 'uuid';
-import { AttributeLabel } from '../../components/AttributesList/AttributesList.styled';
+import { AttributeLabel } from '../../components/attributesList/AttributesList.styled';
 
 class ProductDescriptionPage extends React.Component {
   constructor(props) {

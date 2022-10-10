@@ -1,8 +1,8 @@
 import React from 'react';
-import Navigation from '../Navigation/Navigation';
-import { Logo } from '../Logo/Logo';
+import Navigation from '../navigation/Navigation';
+import { Logo } from '../logo/Logo';
 import CurrencySwitcher from '../CurrencySwitcher/CurrencySwitcher';
-import MiniCart from '../MiniCart/MiniCart';
+import MiniCart from '../miniCart/MiniCart';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import {

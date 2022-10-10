@@ -1,5 +1,5 @@
 import React from 'react';
-import { MiniCartAttributesList } from '../AttributesList/MiniCartAttributeList';
+import { MiniCartAttributesList } from '../attributesList/MiniCartAttributeList';
 import { ProductSlider } from '../ProductSlider/ProductSlider';
 import { ProductPrice } from '../ProductPrice/ProductPrice';
 import { Button } from '../Button/Button';
