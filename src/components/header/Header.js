@@ -2,7 +2,7 @@ import React from 'react';
 import Navigation from '../Navigation/Navigation';
 import { Logo } from '../Logo/Logo';
 import CurrencySwitcher from '../CurrencySwitcher/CurrencySwitcher';
-import MiniCart from '../miniCart/MiniCart';
+import MiniCart from '../MiniCart/MiniCart';
 import { withParams } from '../../helpers/withParams';
 import { connect } from 'react-redux';
 import {

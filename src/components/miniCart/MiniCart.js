@@ -98,8 +98,8 @@ class MiniCart extends React.Component {
           <Summary>
             <SummaryLabel> Total:</SummaryLabel>
             <ProductPrice
-              fontSize={2.4}
-              fontWeight={700}
+              fontSize={1.6}
+              fontWeight={500}
               prices={this.props.total}
               selectedCurrency={this.props.selectedCurrency}
             />
