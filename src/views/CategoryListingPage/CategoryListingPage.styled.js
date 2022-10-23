@@ -1,21 +1,18 @@
 import styled from 'styled-components';
 
 export const CategoryWrapper = styled.div`
-  position: relative;
   min-height: 100vh;
   width: 144rem;
   margin: 0 auto;
-  overflow-x: hidden;
 
   background-color: ${({ theme }) => theme.colors.white};
 `;
 
 export const CategoryTitle = styled.h1`
-  position: absolute;
   width: 29.9rem;
   height: 6.8rem;
-  left: calc(50% - 299px / 2 - 46.95rem);
-  top: 10rem;
+  padding-left: calc(50% - 299px / 2 - 46.95rem);
+  padding-top: 12rem;
 
   display: flex;
   align-items: center;

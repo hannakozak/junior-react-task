@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
-    box-sizing: border-box; 
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
@@ -14,9 +14,7 @@ export const GlobalStyles = createGlobalStyle`
 }
   body {
     line-height: 1.5;
-    background-color: ${({ theme }) => theme.colors.shark};  
     font-size: 1.8rem;
-    overflow-x: hidden;
   }
   p, h1, h2, h3, h4, h5, h6 {
     overflow-wrap: break-word;

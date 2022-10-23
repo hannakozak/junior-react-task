@@ -33,6 +33,8 @@ export const CurrencyOption = styled.div`
   font-weight: 500;
   line-height: 160%;
 
+  cursor: pointer;
+
   &:hover {
     background-color: ${({ theme }) => theme.colors.gallery};
     width: 100%;
@@ -51,6 +53,8 @@ export const CurrnecyCheckerView = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 160%;
+
+  cursor: pointer;
 
   & img {
     position: absolute;

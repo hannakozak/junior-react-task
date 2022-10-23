@@ -42,7 +42,7 @@ class Header extends React.Component {
             )}
           </BasketIcon>
           {this.state.isCartVissible === true && (
-            <Overlay>
+            <Overlay onClick={this.toggleCartVisibility}>
               <MiniCart />
             </Overlay>
           )}

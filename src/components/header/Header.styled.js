@@ -8,6 +8,7 @@ export const HeaderWrapper = styled.div`
   right: 0;
   top: 0;
   z-index: 100;
+  background-color: white;
 `;
 
 export const Actions = styled.div`
@@ -51,6 +52,8 @@ export const BasketItemsAmount = styled.div`
 export const BasketIcon = styled.div`
   display: flex;
   flex-direction: row;
+
+  cursor: pointer;
 `;
 
 export const CartWrapper = styled.div`

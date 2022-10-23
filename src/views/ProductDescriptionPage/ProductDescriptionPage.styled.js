@@ -5,7 +5,6 @@ export const ProductWrapper = styled.div`
   min-height: 100vh;
   width: 144rem;
   margin: 0 auto;
-  overflow-x: hidden;
 
   background-color: ${({ theme }) => theme.colors.white};
 `;
@@ -26,7 +25,6 @@ export const ProductInformation = styled.div`
 export const Description = styled.div`
   width: 29.2rem;
   height: 20rem;
-  overflow: auto;
 
   color: ${({ theme }) => theme.colors.shark};
 

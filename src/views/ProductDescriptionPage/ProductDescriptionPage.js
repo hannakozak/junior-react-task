@@ -40,6 +40,13 @@ class ProductDescriptionPage extends React.Component {
   async componentDidMount() {
     await this.props.fetchProduct(this.props.params.productId);
     this.handleChange(this.props.product.gallery[0]);
+    let defaultAttributes = {};
+    this.props.product.attributes.map((attribute) => {
+      defaultAttributes[attribute.id] = attribute.items[0].value;
+      this.setState(() => ({
+        selectedAttr: defaultAttributes
+      }));
+    });
   }
 
   componentDidUpdate(prevProps) {
